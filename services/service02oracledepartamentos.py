@@ -61,7 +61,19 @@ class ServiceDepartamentos:
         dept.localidad=row[2]
         cursor.close()
         return dept
-
     
-    
-    
+    def getListaDepartamentos(self):
+        cursor=self.connection.cursor()
+        sql="select * from DEPT"
+        listaDepartamentos=[]
+        cursor.execute(sql)
+        for row in cursor:
+            # Por cada fila creamos un objeto departamento
+            dept=departamento.Departamento()
+            dept.idDepartamento=row[0]
+            dept.nombre=row[1]
+            dept.localidad=row[2]
+            # Añadimos a la lista cada departamento
+            listaDepartamentos.append(dept)
+        cursor.close()
+        return listaDepartamentos
