@@ -2,8 +2,17 @@
 # Tenemos la posibilidad de poner un alias a este namespace
 from services import service02oracledepartamentos as serv
 print ("Bienvenido a mi servicio Eliminación de departamentos")
+
 # Creamos la clase
 servicio=serv.ServiceDepartamentos()
+# Vamos a buscar un dpto
+print("Buscar un dept:")
+print("Insertar departamento")
+numero=int(input("Id a buscar:"))
+dato=servicio.getDepartamento(numero)
+print(f"El nombre del departamento es{dato.nombre}")
+print(f"El nombre del departamento es{dato.localidad}")
+# aquí se inserta departamento
 print("Insertar departamento")
 numero=int(input("Id departamento:"))
 nombre=input("Nombre departamento:")
